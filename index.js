@@ -5,6 +5,7 @@ const app = express();
 const port = 3000;
 
 app.use(express.static("public"));
+app.use(express.urlencoded({ extended: true }));
 
 let userInput = '';
 
@@ -14,6 +15,7 @@ app.get("/", async (req, res) => {
         const result = response.data.data;
         console.log(result)
         const animeData = result.map(anime => ({
+            image: anime.images.jpg.large_image_url,
             title: anime.title,
             titleJP: anime.title_japanese,
             status: anime.status,

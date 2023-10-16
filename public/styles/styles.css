@@ -1,0 +1,9 @@
+#top-bar {
+    background-color: rgb(78, 29, 78);
+}
+
+.card img {
+    max-width: 100%;
+    max-height: fit-content;
+    overflow: hidden;
+}
