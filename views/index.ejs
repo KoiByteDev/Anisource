@@ -11,9 +11,42 @@
     <div class="container-fluid text-white py-5" id="top-bar">
         <h1 class="text-center">アニメ棚</h1>
     </div>
-    
+    <form action="/input" method="POST">
+        <div class="container col-6 mt-5">
+            <input type="text" class="form-control mb-5 p-3" id="search-input" name="search" placeholder="I'm Looking for...">
+        </div>
+    </form>
+
+    <div class="row"></div>
+        <% animeData.forEach(anime => { %>
+                <div class="col-3">
+                    <div class="card">
+                        <div class="list-item card-body">
+                            <img src="<%= anime.image %>" style="width: 18rem;" alt="" class="card-img-top">
+                            <h5 class="card-title"><%= anime.title %></h5>
+                            <h6 class="card-subtitle text-muted"><%= anime.titleJP %></h6>
+                        </div>
+                    </div>
+                </div>
+        <% }); %>
+    </div>
     </body>
     <script>
-        
+        document.querySelector("#search-input").addEventListener("input", filterList);
+
+        function filterList(){
+            const searchInput = document.querySelector("#search-input");
+            const filter = searchInput.value.toLowerCase();
+            const listItems = document.querySelectorAll(".list-item");
+
+            listItems.forEach((item) => {
+                let text = item.textContent;
+                if(text.toLowerCase().includes(filter.toLowerCase())) {
+                    item.style.display = '';
+                } else {
+                    item.style.display = 'none';
+                }
+            })
+        }
     </script>
 </html>
