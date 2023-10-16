@@ -1,9 +1,25 @@
+body {
+    background-color: rgb(46, 46, 46) !important;
+}
+
 #top-bar {
     background-color: rgb(78, 29, 78);
 }
 
 .card img {
-    max-width: 100%;
-    max-height: fit-content;
-    overflow: hidden;
+    height: 20rem;
+    object-fit: cover; 
+    border-radius: 5% 5%;
+}
+
+.col-2 {
+    margin-bottom: 15px;
+}
+
+.card {
+    height: 100% !important;
+}
+
+.row {
+    margin: 0 !important;
 }
