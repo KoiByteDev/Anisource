@@ -1,0 +1,18 @@
+<%- include('./partials/header.ejs') %>
+
+    <div class="row">
+        <% mangaData.forEach(manga => { %>
+                <div class="col-3">
+                    <div class="card">
+                        <img src="<%= manga.image %>" alt="" class="card-img-top">
+                        <div class="card-overlay">
+                            <h5 class="card-title"><%= manga.title %></h5>
+                            <h6 class="card-subtitle text-light opacity-75"><%= manga.titleJP %></h6>
+                        </div>
+                    </div>
+                </div>
+        <% }); %>
+    </div>
+
+
+<%- include('./partials/footer.ejs') %>

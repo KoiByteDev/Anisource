@@ -1,0 +1,18 @@
+<%- include('./partials/header.ejs') %>
+
+    <div class="row">
+        <% characterData.forEach(character => { %>
+                <div class="col-3">
+                    <div class="card">
+                        <img src="<%= character.image %>" alt="" class="card-img-top">
+                        <div class="card-overlay">
+                            <h5 class="card-title"><%= character.name %></h5>
+                            <h6 class="card-subtitle text-light opacity-75"><%= character.nameJP %></h6>
+                        </div>
+                    </div>
+                </div>
+        <% }); %>
+    </div>
+
+
+<%- include('./partials/footer.ejs') %>

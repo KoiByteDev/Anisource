@@ -8,9 +8,15 @@ app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 
 let userInput = '';
+let servFile = '/'
 
-app.get("/", async (req, res) => {
+app.get("/", (req, res) => {
+    res.redirect("/anime")
+})
+
+app.get("/anime", async (req, res) => {
     try {
+        servFile = '/anime'
         const response = await axios.get(`https://api.jikan.moe/v4/anime?q=${userInput}`);
         const result = response.data.data;
         console.log(result)
@@ -37,9 +43,48 @@ app.get("/", async (req, res) => {
     }
 });
 
+app.get("/characters", async (req, res) => {
+    try {
+        servFile = '/characters'
+        const response = await axios.get(`https://api.jikan.moe/v4/characters?q=${userInput}`);
+        const result = response.data.data;
+        console.log(result)
+        const characterData = result.map(character => ({
+            image: character.images.jpg.image_url,
+            name: character.name,
+            nameJP: character.name_kanji,
+        }));
+        res.render("characters.ejs", { characterData });
+    } catch(error) {
+        console.log("error");
+        res.status(500)
+    }
+});
+
+
+app.get("/manga", async (req, res) => {
+    try {
+        servFile = '/manga'
+        const response = await axios.get(`https://api.jikan.moe/v4/manga?q=${userInput}`);
+        const result = response.data.data;
+        console.log(result)
+        const mangaData = result.map(manga => ({
+            image: manga.images.jpg.image_url,
+            title: manga.title,
+            titleJP: manga.title_japanese,
+        }));
+        res.render("manga.ejs", { mangaData });
+    } catch(error) {
+        console.log("error");
+        res.status(500)
+    }
+});
+
+
+
 app.post("/input", (req, res) => {
     userInput = req.body.search;
-    res.redirect("/")
+    res.redirect(`${servFile}`)
 })
 
 app.listen(port, () => {
