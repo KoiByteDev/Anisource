@@ -2,16 +2,31 @@
 <script>
     const menuBtn = document.querySelector(".menu-btn");
     const sideBar = document.querySelector(".side-bar");
+    const body = document.querySelector("body");
+    const btn = document.querySelector(".btn");
+    const icon = document.querySelector('.btn_icon');
 
     menuBtn.addEventListener("click", () => {
         const computedStyle = getComputedStyle(sideBar);
         const currentLeft = computedStyle.getPropertyValue("left");
 
         if (currentLeft === "0px" || currentLeft === "0") {
-            sideBar.style.left = "-245px";
+            sideBar.style.left = "-230px";
         } else {
             sideBar.style.left = "0px";
         }
     });
+
+    btn.addEventListener("click", () => {
+        body.classList.toggle('darkmode');
+
+        if(body.classList.contains('darkmode')){
+            icon.classList.remove('fa-sun');
+            icon.classList.add('fa-moon')
+        } else {
+            icon.classList.remove('fa-moon');
+            icon.classList.add('fa-sun')
+        }
+    })
 </script>
 </html>
