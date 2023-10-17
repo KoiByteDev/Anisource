@@ -30,7 +30,7 @@ app.get("/", async (req, res) => {
             season: anime.season,
             year: anime.year,
         }));
-        res.render("index.ejs", { animeData });
+        res.render("anime.ejs", { animeData });
     } catch(error) {
         console.log("error");
         res.status(500)

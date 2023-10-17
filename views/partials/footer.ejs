@@ -1,0 +1,17 @@
+</body>
+<script>
+    const menuBtn = document.querySelector(".menu-btn");
+    const sideBar = document.querySelector(".side-bar");
+
+    menuBtn.addEventListener("click", () => {
+        const computedStyle = getComputedStyle(sideBar);
+        const currentLeft = computedStyle.getPropertyValue("left");
+
+        if (currentLeft === "0px" || currentLeft === "0") {
+            sideBar.style.left = "-245px";
+        } else {
+            sideBar.style.left = "0px";
+        }
+    });
+</script>
+</html>

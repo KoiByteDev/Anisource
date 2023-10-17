@@ -1,0 +1,17 @@
+<%- include('./partials/header.ejs') %>
+
+    <div class="row">
+        <% animeData.forEach(anime => { %>
+                <div class="col-3">
+                    <div class="card">
+                        <img src="<%= anime.image %>" alt="" class="card-img-top">
+                        <div class="card-overlay">
+                            <h5 class="card-title"><%= anime.title %></h5>
+                            <h6 class="card-subtitle text-light opacity-75"><%= anime.titleJP %></h6>
+                        </div>
+                    </div>
+                </div>
+        <% }); %>
+    </div>
+ 
+<%- include('./partials/footer.ejs') %>
