@@ -2,7 +2,7 @@
 
 Anisource is an engine where you can search info for any anime, anime character or manga. It is made with JikanAPI.
 
-![Anisource_preview](http://Anisource/public/assets/show.jpg)
+![Anisource_preview](http://public/assets/show.jpg)
 
 ## Prerequisites
 
