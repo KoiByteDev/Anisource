@@ -108,7 +108,7 @@ body {
 }
 
 .card img {
-    height: 25rem;
+    height: 30rem;
     object-fit: cover; 
     border-radius: 1rem 1rem;
 }
